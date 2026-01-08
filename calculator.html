@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Calculator Example</title>
+    </head>
+    <body>
+        <p id = "output">0</p> 
+        <button id="0Btn">0</button>
+        <button id="1Btn">1</button>
+        <button id="2Btn">2</button>
+        <button id="3Btn">3</button>
+        <button id="4Btn">4</button>
+        <button id="5Btn">5</button>
+        <button id="6Btn">6</button>
+        <button id="7Btn">7</button>
+        <button id="8Btn">8</button>
+        <button id="9Btn">9</button>
+        <button id="plusBtn">+</button>
+        <button id="minusBtn">-</button>
+        <button id="equalsBtn">=</button>
+    </body>
+    <script>
+        //declare variables
+        const zeroBtn = document.getElementById("0Btn");
+        const oneBtn = document.getElementById("1Btn");
+        const twoBtn = document.getElementById("2Btn");
+        const threeBtn = document.getElementById("3Btn");
+        const fourBtn = document.getElementById("4Btn");
+        const fiveBtn = document.getElementById("5Btn");
+        const sixBtn = document.getElementById("6Btn");
+        const sevenBtn = document.getElementById("7Btn");
+        const eightBtn = document.getElementById("8Btn");
+        const nineBtn = document.getElementById("9Btn");
+        const equalsBtn = document.getElementById("equalsBtn");
+        let output = document.getElementById("output");
+        let calcNum = Number();
+        
+        //listener for 0 button
+        zeroBtn.addEventListener("click", function() {
+            calcNum = String(calcNum) + 0;
+            output.textContent = calcNum;
+        });
+        
+        //listener for 1 button
+        oneBtn.addEventListener("click", function() {
+            calcNum = String(calcNum) + 1;
+            output.textContent = calcNum;
+        });
+
+        //listener for 2 button
+        twoBtn.addEventListener("click", function() {
+            calcNum = String(calcNum) + 2;
+            output.textContent = calcNum;
+        });
+
+        //listener for 3 button
+        threeBtn.addEventListener("click", function() {
+            calcNum = String(calcNum) + 3;
+            output.textContent = calcNum;
+        });
+
+        //listener for 4 button
+        fourBtn.addEventListener("click", function() {
+            calcNum = String(calcNum) + 4;
+            output.textContent = calcNum;
+        });
+
+        //equals button listener to show final value
+        plusBtn.addEventListener("click", function() {
+            alert(`Your final number is ${calcNum}!`);
+        });
+
+        //equals button listener to show final value
+        equalsBtn.addEventListener("click", function() {
+            alert(`Your final number is ${calcNum}!`);
+        });
+    </script>
+</html>

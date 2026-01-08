@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Grading System</title>
+    </head>
+    <body>
+        
+        <div id="results"></div>
+
+        <script>
+
+            let resultsDiv = document.getElementById("results");
+            
+            let students = [
+                {
+                    name: "Alice",
+                    math: 85,
+                    science: 92,
+                    english: 88
+                },
+                {
+                    name: "Brian",
+                    math: 58,
+                    science: 29,
+                    english: 74
+                },
+                {
+                    name: "Jackie",
+                    math: 69,
+                    science: 55,
+                    english: 93
+                }
+            ];
+
+            function calcAverage(student){
+                let total = student.math + student.science + student.english;
+                return total / 3;
+            }
+
+            function findHighestScorer(student){
+                let highest = students[0];
+                let highestAvg = calcAverage(highest);
+                students.forEach(function(student) {
+                    let avg = calcAverage(student);
+                    if (avg > highestAvg) {
+                        highest = student;
+                        highestAvg = avg;
+                    }
+                });
+                return highest;
+            }
+
+            students.forEach(function(student) {
+                let avg = calcAverage(student);
+                resultsDiv.innerHTML += `<p>${student.name}: ${avg.toFixed(1)}</p>`;
+            });
+            
+        </script>
+    </body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Listeners Demo Page</title>
+    </head>
+    <body>
+        <!-- click event example -->
+        <h1>Click Event Example</h1>
+        <button id = "myBtn">Click Me!</button>
+        <p id = "output">Nothing Happened!</p>
+        
+        <!-- input event example -->
+        <h1>Input Event Example</h1>
+        <input type="text" id="nameBox" placeholder="Type your name"> <p id="greeting"></p>
+
+        <!-- hover event example -->
+        <h1>Hover Event Example</h1>
+        <div id="colorBox" style="width: 200px; height: 200px; background-color: blue;">Hover over me!</div>
+
+        <!-- submit event example -->
+        <h1>Submit Event Example</h1>
+        <form id="myForm">
+            <input type="text" id="username" placeholder="Enter username" required>
+            <input type="email” id="email" placeholder="Enter email" required>
+            <button type="submit">Submit Form</button>
+        </form>
+
+        <p id="result"></p>
+
+        <!-- form event example -->
+        <h1>Form Event Example</h1>
+        <input type="text" id="nameInput" placeholder="Enter Your Name">
+        <select id="colorSelect">
+            <option value="red">Red</option>
+            <option value="blue">Blue</option>
+            <option value="green">Green</option>
+        </select>
+        <button id="submitBtn">Submit</button>
+    </body>
+    <script>
+        //html elements
+        //clickbutton event vars
+        const button = document.querySelector('#myBtn');
+        const output = document.getElementById("output");
+        
+        //input event vars
+        const nameBox = document.getElementById('nameBox');
+        const greeting = document.getElementById('greeting');
+
+        //hover event vars
+        const colorBox = document.getElementById('colorBox');
+
+        //submit event vars
+        const form = document.getElementById('myForm');
+        const result = document.getElementById('result');
+
+        //form event vars
+        const nameInput = document.getElementById("nameInput");
+        const colorSelect = document.getElementById("colorSelect");
+        const submitBtn = document.getElementById("submitBtn");
+        
+        //click event listener
+        button.addEventListener("click", function() {
+            output.textContent = "Button was clicked!";
+        });
+
+        //input event listener
+        nameBox.addEventListener('input', function() {
+            greeting.textContent = 'Hello, ' + nameBox.value + '!';
+        });
+
+        //hover event listener
+        colorBox.addEventListener('mouseenter', function() {
+            colorBox.style.backgroundColor = 'red';
+            colorBox.textContent = 'Mouse is here!';
+        });
+        colorBox.addEventListener('mouseleave', function() {
+            colorBox.style.backgroundColor = 'blue';
+            colorBox.textContent ='Hover over me!';
+        });
+
+        //submit event listener
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); // Stops the form from actually submitting
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            result.textContent = `Form submitted! Username: ${username}, Email: ${email}`;
+        });
+
+        //form event listener
+        submitBtn.addEventListener("click", function() {
+            let name = nameInput.value;
+            let color = colorSelect.value;
+            alert(`Hello ${name}, your favorite color is ${color}!`);
+        });
+    </script>
+</html>
